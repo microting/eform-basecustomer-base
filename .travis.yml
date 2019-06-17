@@ -1,0 +1,15 @@
+dist: xenial
+branches:
+  only:
+    - master
+language: csharp
+solution: eform-eform-BaseCustomer-base/Microting.eFormBaseCustomerBase.sln
+mono: none
+dotnet: 2.2
+services:
+- mysql
+script:
+  - dotnet restore
+  - dotnet build Microting.eFormBaseCustomerBase.sln
+  - dotnet test -v n Microting.eFormBaseCustomerBase.Unit.Tests/Microting.eFormBaseCustomerBase.Unit.Tests.csproj
+  - dotnet test -v n Microting.eFormBaseCustomerBase.Integration.Tests/Microting.eFormBaseCustomerBase.Integration.Tests.csproj
