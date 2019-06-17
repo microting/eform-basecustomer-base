@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microting.eFormBaseCustomerBase", "Microting.eFormBaseCustomerBase\Microting.eFormBaseCustomerBase.csproj", "{B841677C-9023-4FD1-BB38-A161C414E29C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBMigrator", "DBMigrator\DBMigrator.csproj", "{84A2EB43-B9E1-48B5-B2F6-22244CAB377E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4EE683A0-29D6-4818-BF1C-38BA64EB9256}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microting.eFormBaseCustomerBase.Unit.Tests", "Microting.eFormBaseCustomerBase.Unit.Tests\Microting.eFormBaseCustomerBase.Unit.Tests.csproj", "{53064EAA-53A8-4FD6-A4C2-1234B03E92A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microting.eFormBaseCustomerBase.Integration.Tests", "Microting.eFormBaseCustomerBase.Integration.Tests\Microting.eFormBaseCustomerBase.Integration.Tests.csproj", "{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B841677C-9023-4FD1-BB38-A161C414E29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B841677C-9023-4FD1-BB38-A161C414E29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B841677C-9023-4FD1-BB38-A161C414E29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B841677C-9023-4FD1-BB38-A161C414E29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A2EB43-B9E1-48B5-B2F6-22244CAB377E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A2EB43-B9E1-48B5-B2F6-22244CAB377E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A2EB43-B9E1-48B5-B2F6-22244CAB377E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A2EB43-B9E1-48B5-B2F6-22244CAB377E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53064EAA-53A8-4FD6-A4C2-1234B03E92A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53064EAA-53A8-4FD6-A4C2-1234B03E92A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53064EAA-53A8-4FD6-A4C2-1234B03E92A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53064EAA-53A8-4FD6-A4C2-1234B03E92A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53064EAA-53A8-4FD6-A4C2-1234B03E92A4} = {4EE683A0-29D6-4818-BF1C-38BA64EB9256}
+		{21710AE3-3D2F-4210-A7AA-7BCCBFA2CA01} = {4EE683A0-29D6-4818-BF1C-38BA64EB9256}
+	EndGlobalSection
+EndGlobal
