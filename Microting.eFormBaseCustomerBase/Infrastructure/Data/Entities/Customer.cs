@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using Microting.eForm.Infrastructure.Constants;
 using Microting.eFormApi.BasePn.Abstractions;
 using Microting.eFormApi.BasePn.Infrastructure.Database.Base;
 
@@ -95,7 +96,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 throw new NullReferenceException($"Could not find Customer with {Id}");
             }
 
-            customer.Workflow_state = eFormShared.Constants.WorkflowStates.Removed;
+            customer.Workflow_state = Constants.WorkflowStates.Removed;
             customer.RelatedEntityId = null;
 
             if (dbContext.ChangeTracker.HasChanges())
