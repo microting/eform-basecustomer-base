@@ -55,6 +55,11 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 
         public void Create(CustomersPnDbAnySql dbContext)
         {
+            CreatedAt = DateTime.UtcNow;
+            UpdatedAt = DateTime.UtcNow;
+            Version = 1;
+            WorkflowState = Constants.WorkflowStates.Created;
+            
             dbContext.Customers.Add(this);
             dbContext.SaveChanges();
 
