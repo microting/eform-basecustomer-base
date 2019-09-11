@@ -13,6 +13,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public virtual Field Field { get; set; }
 
         public short? FieldStatus { get; set; }
+        
+        public int DisplayIndex { get; set; }
 
         public void Create(CustomersPnDbAnySql dbContext)
         {
