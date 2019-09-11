@@ -11,38 +11,45 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 {
     public class Customer : BaseEntity, IDataAccessObject<CustomersPnDbAnySql>
     {
-        public DateTime? Created_at { get; set; }
-
-        public DateTime? Updated_at { get; set; }
-
-        [StringLength(255)]
-        public string Workflow_state { get; set; }
-
-        public int Created_By_User_Id { get; set; }
-
-        public int Updated_By_User_Id { get; set; }
 
         public DateTime CreatedDate { get; set; }
 
         [StringLength(250)]
         public string CreatedBy { get; set; }
+        
         public string CustomerNo { get; set; }
+        
         [StringLength(250)]
         public string CompanyName { get; set; }
+        
         [StringLength(250)]
         public string CompanyAddress { get; set; }
+        
+        [StringLength(250)]
+        public string CompanyAddress2 { get; set; }
+        
         [StringLength(50)]
         public string ZipCode { get; set; }
+        
         [StringLength(250)]
         public string CityName { get; set; }
+        
         [StringLength(250)]
         public string Phone { get; set; }
+        
         [StringLength(250)]
         public string Email { get; set; }
+        
         [StringLength(250)]
         public string ContactPerson { get; set; }
+        
         public string Description { get; set; }
+        
         public int? RelatedEntityId { get; set; }
+        
+        public string EanCode { get; set; }
+        
+        public string VatNumber { get; set; }
 
         public void Create(CustomersPnDbAnySql dbContext)
         {
@@ -64,21 +71,24 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 
             customer.CityName = CityName;
             customer.CompanyAddress = CompanyAddress;
+            customer.CompanyAddress2 = CompanyAddress2;
             customer.CompanyName = CompanyName;
             customer.ContactPerson = ContactPerson;
-            customer.CreatedBy = CreatedBy;
             customer.CustomerNo = CustomerNo;
             customer.Description = Description;
             customer.Email = Email;
             customer.Phone = Phone;
             customer.ZipCode = ZipCode;
             customer.RelatedEntityId = RelatedEntityId;
-            customer.Id = Id;
-            customer.Workflow_state = Workflow_state;
+            customer.WorkflowState = WorkflowState;
+            customer.EanCode = EanCode;
+            customer.VatNumber = VatNumber;
+            customer.CreatedBy = CreatedBy;
+            customer.CreatedDate = CreatedDate;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
-                customer.Updated_at = DateTime.Now;
+                customer.UpdatedAt = DateTime.Now;
                 customer.Version += 1;
                 dbContext.SaveChanges();
 
@@ -96,12 +106,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 throw new NullReferenceException($"Could not find Customer with {Id}");
             }
 
-            customer.Workflow_state = Constants.WorkflowStates.Removed;
+            customer.WorkflowState = Constants.WorkflowStates.Removed;
             customer.RelatedEntityId = null;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
-                customer.Updated_at = DateTime.Now;
+                customer.UpdatedAt = DateTime.Now;
                 customer.Version += 1;
                 dbContext.SaveChanges();
                 
@@ -112,22 +122,30 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 
         private CustomerVersion MapCustomerVersions(CustomersPnDbAnySql dbContext, Customer customer)
         {
-            CustomerVersion customerVer = new CustomerVersion();
-
-            customerVer.CityName = customer.CityName;
-            customerVer.CompanyAddress = customer.CompanyAddress;
-            customerVer.CompanyName = customer.CompanyName;
-            customerVer.ContactPerson = customer.ContactPerson;
-            customerVer.CreatedBy = customer.CreatedBy;
-            customerVer.CreatedDate = customer.CreatedDate;
-            customerVer.CustomerNo = customer.CustomerNo;
-            customerVer.Description = customer.Description;
-            customerVer.Email = customer.Email;
-            customerVer.Phone = customer.Phone;
-            customerVer.ZipCode = customer.ZipCode;
-            customerVer.CustomerId = customer.Id;
-
-            return customerVer;
+            return new CustomerVersion()
+            {
+                CityName = customer.CityName,
+                CompanyAddress = customer.CompanyAddress,
+                CompanyAddress2 = customer.CompanyAddress2,
+                CompanyName = customer.CompanyName,
+                ContactPerson = customer.ContactPerson,
+                CustomerNo = customer.CustomerNo,
+                Description = customer.Description,
+                Email = customer.Email,
+                Phone = customer.Phone,
+                ZipCode = customer.ZipCode,
+                CustomerId = customer.Id,
+                RelatedEntityId = customer.RelatedEntityId,
+                WorkflowState = customer.WorkflowState,
+                EanCode = customer.EanCode,
+                VatNumber = customer.VatNumber,
+                CreatedBy = customer.CreatedBy,
+                CreatedDate = customer.CreatedDate,
+                CreatedAt = customer.CreatedAt,
+                CreatedByUserId = customer.CreatedByUserId,
+                UpdatedAt = customer.UpdatedAt,
+                UpdatedByUserId = customer.UpdatedByUserId,
+            };
         }
     }
 }

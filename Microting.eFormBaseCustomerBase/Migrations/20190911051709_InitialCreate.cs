@@ -2,13 +2,15 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
+namespace Microting.eFormBaseCustomerBase.Migrations
 {
     public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            string autoIDGenStrategy = "SqlServer:ValueGenerationStrategy";
+            //Setup for SQL Server Provider
+
+            var autoIDGenStrategy = "SqlServer:ValueGenerationStrategy";
             object autoIDGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
 
             // Setup for MySQL Provider
@@ -18,48 +20,37 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                 autoIDGenStrategy = "MySql:ValueGenerationStrategy";
                 autoIDGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
             }
-
             migrationBuilder.CreateTable(
                 name: "Customers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
-                    Created_at = table.Column<DateTime>(nullable: true),
-                    Updated_at = table.Column<DateTime>(nullable: true),
-                    Workflow_state = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
-                    Created_By_User_Id = table.Column<int>(nullable: false),
-                    Updated_By_User_Id = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<string>(maxLength: 250, nullable: true),
                     CustomerNo = table.Column<string>(nullable: true),
                     CompanyName = table.Column<string>(maxLength: 250, nullable: true),
                     CompanyAddress = table.Column<string>(maxLength: 250, nullable: true),
+                    CompanyAddress2 = table.Column<string>(maxLength: 250, nullable: true),
                     ZipCode = table.Column<string>(maxLength: 50, nullable: true),
                     CityName = table.Column<string>(maxLength: 250, nullable: true),
                     Phone = table.Column<string>(maxLength: 250, nullable: true),
                     Email = table.Column<string>(maxLength: 250, nullable: true),
                     ContactPerson = table.Column<string>(maxLength: 250, nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    RelatedEntityId = table.Column<int>(nullable: true)
+                    RelatedEntityId = table.Column<int>(nullable: true),
+                    EanCode = table.Column<string>(nullable: true),
+                    VatNumber = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "CustomerSettings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
-                    RelatedEntityGroupId = table.Column<int>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CustomerSettings", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -68,17 +59,18 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
-                    Created_at = table.Column<DateTime>(nullable: true),
-                    Updated_at = table.Column<DateTime>(nullable: true),
-                    Workflow_state = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
                     Version = table.Column<int>(nullable: false),
-                    Created_By_User_Id = table.Column<int>(nullable: false),
-                    Updated_By_User_Id = table.Column<int>(nullable: false),
                     CreatedDate = table.Column<DateTime>(nullable: false),
                     CreatedBy = table.Column<string>(maxLength: 250, nullable: true),
                     CustomerNo = table.Column<string>(nullable: true),
                     CompanyName = table.Column<string>(maxLength: 250, nullable: true),
                     CompanyAddress = table.Column<string>(maxLength: 250, nullable: true),
+                    CompanyAddress2 = table.Column<string>(maxLength: 250, nullable: true),
                     ZipCode = table.Column<string>(maxLength: 50, nullable: true),
                     CityName = table.Column<string>(maxLength: 250, nullable: true),
                     Phone = table.Column<string>(maxLength: 250, nullable: true),
@@ -86,7 +78,9 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                     ContactPerson = table.Column<string>(maxLength: 250, nullable: true),
                     Description = table.Column<string>(nullable: true),
                     RelatedEntityId = table.Column<int>(nullable: true),
-                    CustomerId = table.Column<int>(nullable: false)
+                    CustomerId = table.Column<int>(nullable: false),
+                    EanCode = table.Column<string>(nullable: true),
+                    VatNumber = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -99,6 +93,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
+                    Version = table.Column<int>(nullable: false),
                     Name = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
@@ -107,11 +107,57 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PluginConfigurationValues",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
+                    Version = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PluginConfigurationValues", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PluginConfigurationValueVersions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
+                    Version = table.Column<int>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Value = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PluginConfigurationValueVersions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CustomerFields",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    UpdatedAt = table.Column<DateTime>(nullable: true),
+                    WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
+                    CreatedByUserId = table.Column<int>(nullable: false),
+                    UpdatedByUserId = table.Column<int>(nullable: false),
+                    Version = table.Column<int>(nullable: false),
                     FieldId = table.Column<int>(nullable: false),
                     FieldStatus = table.Column<short>(nullable: true)
                 },
@@ -153,10 +199,13 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Migrations
                 name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "CustomerSettings");
+                name: "CustomerVersions");
 
             migrationBuilder.DropTable(
-                name: "CustomerVersions");
+                name: "PluginConfigurationValues");
+
+            migrationBuilder.DropTable(
+                name: "PluginConfigurationValueVersions");
 
             migrationBuilder.DropTable(
                 name: "Fields");

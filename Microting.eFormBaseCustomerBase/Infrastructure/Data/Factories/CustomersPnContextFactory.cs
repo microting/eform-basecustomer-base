@@ -25,7 +25,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
             {
                 throw new ArgumentNullException("Connection string not present");
             }
-            //optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=customers-pn-tests;Integrated Security=True");
+//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=customers-pn-tests;Integrated Security=True");
+//            dotnet ef migrations add InitialCreate --project Microting.eFormBaseCustomerBase --startup-project DBMigrator
             optionsBuilder.UseLazyLoadingProxies(true);
             return new CustomersPnDbAnySql(optionsBuilder.Options);
         }
