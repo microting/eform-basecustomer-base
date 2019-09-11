@@ -49,5 +49,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public string EanCode { get; set; }
         
         public string VatNumber { get; set; }
+        
+        public string CountryCode { get; set; }
     }
 }

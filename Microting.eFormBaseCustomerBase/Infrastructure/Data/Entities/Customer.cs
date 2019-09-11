@@ -50,6 +50,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public string EanCode { get; set; }
         
         public string VatNumber { get; set; }
+        
+        public string CountryCode { get; set; }
 
         public void Create(CustomersPnDbAnySql dbContext)
         {
@@ -85,6 +87,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             customer.VatNumber = VatNumber;
             customer.CreatedBy = CreatedBy;
             customer.CreatedDate = CreatedDate;
+            customer.CountryCode = CountryCode;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
@@ -139,6 +142,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 WorkflowState = customer.WorkflowState,
                 EanCode = customer.EanCode,
                 VatNumber = customer.VatNumber,
+                CountryCode = customer.CountryCode,
                 CreatedBy = customer.CreatedBy,
                 CreatedDate = customer.CreatedDate,
                 CreatedAt = customer.CreatedAt,
