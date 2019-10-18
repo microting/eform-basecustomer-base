@@ -19,6 +19,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data
         public DbSet<CustomerField> CustomerFields { get; set; }
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
+        public DbSet<PluginPermission> PluginPermissions { get; set; }
+        public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
