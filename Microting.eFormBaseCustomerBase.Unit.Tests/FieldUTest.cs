@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microting.eForm.Infrastructure.Constants;
 using Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities;
 using Microting.eFormBaseCustomerBase.Infrastructure.Models;
 using Microting.eFormBaseCustomerBase.Infrastructure.Models.Fields;
@@ -56,7 +57,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
 
             FieldsUpdateModel fieldsUpdate = new FieldsUpdateModel();
             fieldsUpdate.Fields = list;
-            // TODO: FIX
+
             newField.Update(DbContext);
 
             Field dbField = DbContext.Fields.AsNoTracking().First();
@@ -93,7 +94,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             Assert.AreEqual(1, fieldList.Count());
             
             Assert.AreEqual(newField.Name, dbField.Name);
-            
+            Assert.AreEqual(Constants.WorkflowStates.Removed, dbField.WorkflowState);
         }
     }
 }
