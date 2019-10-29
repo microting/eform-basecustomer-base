@@ -8,26 +8,30 @@ namespace Microting.eFormBaseCustomerBase.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            string autoIDGenStrategy = "SqlServer:ValueGenerationStrategy";
-            object autoIDGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
-            if (DbConfig.IsMySQL)
+            //Setup for SQL Server Provider
+            var autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
+            object autoIdGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
+
+            // Setup for MySQL Provider
+            if (migrationBuilder.ActiveProvider == "Pomelo.EntityFrameworkCore.MySql")
             {
-                autoIDGenStrategy = "MySql:ValueGenerationStrategy";
-                autoIDGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
+                DbConfig.IsMySQL = true;
+                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
+                autoIdGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
             }
 
             migrationBuilder.CreateTable(
                 name: "PluginPermissions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Id = table.Column<int>()
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
-                    CreatedByUserId = table.Column<int>(nullable: false),
-                    UpdatedByUserId = table.Column<int>(nullable: false),
-                    Version = table.Column<int>(nullable: false),
+                    CreatedByUserId = table.Column<int>(),
+                    UpdatedByUserId = table.Column<int>(),
+                    Version = table.Column<int>(),
                     PermissionName = table.Column<string>(nullable: true),
                     ClaimName = table.Column<string>(nullable: true)
                 },
@@ -40,16 +44,16 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 name: "PluginGroupPermissions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation(autoIDGenStrategy, autoIDGenStrategyValue),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    Id = table.Column<int>()
+                        .Annotation(autoIdGenStrategy, autoIdGenStrategyValue),
+                    CreatedAt = table.Column<DateTime>(),
                     UpdatedAt = table.Column<DateTime>(nullable: true),
                     WorkflowState = table.Column<string>(maxLength: 255, nullable: true),
-                    CreatedByUserId = table.Column<int>(nullable: false),
-                    UpdatedByUserId = table.Column<int>(nullable: false),
-                    Version = table.Column<int>(nullable: false),
-                    GroupId = table.Column<int>(nullable: false),
-                    PermissionId = table.Column<int>(nullable: false)
+                    CreatedByUserId = table.Column<int>(),
+                    UpdatedByUserId = table.Column<int>(),
+                    Version = table.Column<int>(),
+                    GroupId = table.Column<int>(),
+                    PermissionId = table.Column<int>()
                 },
                 constraints: table =>
                 {

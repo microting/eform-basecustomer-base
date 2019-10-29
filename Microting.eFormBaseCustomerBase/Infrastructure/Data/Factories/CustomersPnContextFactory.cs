@@ -10,7 +10,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
         public CustomersPnDbAnySql CreateDbContext(string[] args)
         {
             //args = new[]
-            //    {"data source=.\\sqlexpress;database=appointments-plugin;integrated security=true"};
+            //    {"data source=.\\sqlexpress;database=customer-plugin;integrated security=true"};
             var optionsBuilder = new DbContextOptionsBuilder<CustomersPnDbAnySql>();
             if (args.Any())
             {

@@ -3,34 +3,29 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microting.eFormBaseCustomerBase.Infrastructure.Data;
 
 namespace Microting.eFormBaseCustomerBase.Migrations
 {
     [DbContext(typeof(CustomersPnDbAnySql))]
-    partial class CustomersPnDbAnySqlModelSnapshot : ModelSnapshot
+    [Migration("20191029232214_AddPluginPermission")]
+    partial class AddPluginPermission
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            string autoIdGenStrategy = "SqlServer:ValueGenerationStrategy";
-            object autoIdDGenStrategyValue = SqlServerValueGenerationStrategy.IdentityColumn;
-            if (DbConfig.IsMySQL)
-            {
-                autoIdGenStrategy = "MySql:ValueGenerationStrategy";
-                autoIdDGenStrategyValue = MySqlValueGenerationStrategy.IdentityColumn;
-            }
-
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginConfigurationValue", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -58,7 +53,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -86,7 +81,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -118,7 +113,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -158,7 +153,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimName");
 
@@ -186,7 +181,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CityName")
                         .HasMaxLength(250);
@@ -255,7 +250,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
@@ -287,7 +282,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CityName")
                         .HasMaxLength(250);
@@ -354,7 +349,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasAnnotation(autoIdGenStrategy, autoIdDGenStrategyValue);
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreatedAt");
 
