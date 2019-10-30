@@ -10,8 +10,8 @@ using Microting.eFormBaseCustomerBase.Infrastructure.Data;
 namespace Microting.eFormBaseCustomerBase.Migrations
 {
     [DbContext(typeof(CustomersPnDbAnySql))]
-    [Migration("20191029232214_AddPluginPermission")]
-    partial class AddPluginPermission
+    [Migration("20191030003922_AddPluginPermissionVersion")]
+    partial class AddPluginPermissionVersion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -119,6 +119,8 @@ namespace Microting.eFormBaseCustomerBase.Migrations
 
                     b.Property<int>("CreatedByUserId");
 
+                    b.Property<int?>("FK_PluginGroupPermissionVersions_PluginGroupPermissionId");
+
                     b.Property<int>("GroupId");
 
                     b.Property<bool>("IsEnabled");
@@ -126,8 +128,6 @@ namespace Microting.eFormBaseCustomerBase.Migrations
                     b.Property<int>("PermissionId");
 
                     b.Property<int>("PluginGroupPermissionId");
-
-                    b.Property<int?>("PluginGroupPermissionId1");
 
                     b.Property<DateTime?>("UpdatedAt");
 
@@ -140,11 +140,9 @@ namespace Microting.eFormBaseCustomerBase.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FK_PluginGroupPermissionVersions_PluginGroupPermissionId");
+
                     b.HasIndex("PermissionId");
-
-                    b.HasIndex("PluginGroupPermissionId");
-
-                    b.HasIndex("PluginGroupPermissionId1");
 
                     b.ToTable("PluginGroupPermissionVersions");
                 });
@@ -384,19 +382,15 @@ namespace Microting.eFormBaseCustomerBase.Migrations
 
             modelBuilder.Entity("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermissionVersion", b =>
                 {
+                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", "PluginGroupPermission")
+                        .WithMany()
+                        .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
                     b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginPermission", "Permission")
                         .WithMany()
                         .HasForeignKey("PermissionId")
                         .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission")
-                        .WithMany()
-                        .HasForeignKey("PluginGroupPermissionId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Microting.eFormApi.BasePn.Infrastructure.Database.Entities.PluginGroupPermission", "PluginGroupPermission")
-                        .WithMany()
-                        .HasForeignKey("PluginGroupPermissionId1");
                 });
 
             modelBuilder.Entity("Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities.CustomerField", b =>
