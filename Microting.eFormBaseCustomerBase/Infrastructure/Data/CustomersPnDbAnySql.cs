@@ -32,6 +32,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data
                 .IsUnique();
             modelBuilder.Entity<Field>()
                 .HasIndex(x => x.Name);
+
+            modelBuilder.Entity<PluginGroupPermissionVersion>()
+                .HasOne(x => x.PluginGroupPermission)
+                .WithMany()
+                .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
