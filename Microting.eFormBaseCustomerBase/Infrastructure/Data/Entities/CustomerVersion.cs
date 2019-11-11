@@ -52,6 +52,6 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         
         public string CountryCode { get; set; }
         
-        public int CrmId { get; set; }
+        public int? CrmId { get; set; }
     }
 }
