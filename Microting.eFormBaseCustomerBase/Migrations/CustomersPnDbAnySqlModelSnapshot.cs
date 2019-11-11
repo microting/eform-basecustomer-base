@@ -212,7 +212,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int>("CrmId");
+                    b.Property<int?>("CrmId");
 
                     b.Property<string>("CustomerNo");
 
@@ -315,7 +315,7 @@ namespace Microting.eFormBaseCustomerBase.Migrations
 
                     b.Property<DateTime>("CreatedDate");
 
-                    b.Property<int>("CrmId");
+                    b.Property<int?>("CrmId");
 
                     b.Property<int>("CustomerId");
 

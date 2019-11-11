@@ -9,13 +9,13 @@ namespace Microting.eFormBaseCustomerBase.Migrations
             migrationBuilder.AddColumn<int>(
                 name: "CrmId",
                 table: "CustomerVersions",
-                nullable: false,
+                nullable: true,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<int>(
                 name: "CrmId",
                 table: "Customers",
-                nullable: false,
+                nullable: true,
                 defaultValue: 0);
         }
 
