@@ -52,6 +52,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public string VatNumber { get; set; }
         
         public string CountryCode { get; set; }
+        
+        public int? CrmId { get; set; }
 
         public void Create(CustomersPnDbAnySql dbContext)
         {
@@ -63,7 +65,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             dbContext.Customers.Add(this);
             dbContext.SaveChanges();
 
-            dbContext.CustomerVersions.Add(MapCustomerVersions(dbContext, this));
+            dbContext.CustomerVersions.Add(MapVersions(dbContext, this));
             dbContext.SaveChanges();
         }
 
@@ -93,6 +95,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             customer.CreatedBy = CreatedBy;
             customer.CreatedDate = CreatedDate;
             customer.CountryCode = CountryCode;
+            customer.CrmId = CrmId;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
@@ -100,7 +103,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 customer.Version += 1;
                 dbContext.SaveChanges();
 
-                dbContext.CustomerVersions.Add(MapCustomerVersions(dbContext, customer));
+                dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
                 dbContext.SaveChanges();
             }
         }
@@ -123,12 +126,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 customer.Version += 1;
                 dbContext.SaveChanges();
                 
-                dbContext.CustomerVersions.Add(MapCustomerVersions(dbContext, customer));
+                dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
                 dbContext.SaveChanges();
             }
         }
 
-        private CustomerVersion MapCustomerVersions(CustomersPnDbAnySql dbContext, Customer customer)
+        private CustomerVersion MapVersions(CustomersPnDbAnySql dbContext, Customer customer)
         {
             return new CustomerVersion()
             {
@@ -154,6 +157,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 CreatedByUserId = customer.CreatedByUserId,
                 UpdatedAt = customer.UpdatedAt,
                 UpdatedByUserId = customer.UpdatedByUserId,
+                CrmId = customer.CrmId
             };
         }
     }
