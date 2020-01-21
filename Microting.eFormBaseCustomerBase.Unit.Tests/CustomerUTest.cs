@@ -106,6 +106,72 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             Assert.AreEqual(newCustomer.Phone, dbCustomer.Phone);
             Assert.AreEqual(newCustomer.ZipCode, dbCustomer.ZipCode);
         }
+                [Test]
+        public void CustomerFullModel_Update_DoesUpdateWithSameStrings()
+        {
+            // Arrange
+            Customer newCustomer = new Customer();
+
+            string CityName = Guid.NewGuid().ToString();
+            string CompanyAddress = Guid.NewGuid().ToString();
+            string CompanyName = Guid.NewGuid().ToString();
+            string ContactPerson = Guid.NewGuid().ToString();
+            string CreatedBy = Guid.NewGuid().ToString();
+            string CustomerNo = Guid.NewGuid().ToString();
+            string Description = Guid.NewGuid().ToString();
+            string Email = Guid.NewGuid().ToString();
+            string Phone = Guid.NewGuid().ToString();
+            string ZipCode = Guid.NewGuid().ToString();
+
+            newCustomer.CityName = CityName;
+            newCustomer.CompanyAddress = CompanyAddress;
+            newCustomer.CompanyName = CompanyName;
+            newCustomer.ContactPerson = ContactPerson;
+            newCustomer.CreatedBy = CreatedBy;
+            newCustomer.CustomerNo = CustomerNo;
+            newCustomer.Description = Description;
+            newCustomer.Email = Email;
+            newCustomer.Phone = Phone;
+            newCustomer.ZipCode = ZipCode;
+            
+
+            newCustomer.Create(DbContext);
+
+            // Act
+            newCustomer.CityName = CityName;
+            newCustomer.CompanyAddress = CompanyAddress;
+            newCustomer.CompanyName = CompanyName;
+            newCustomer.ContactPerson = ContactPerson;
+            newCustomer.CreatedBy = CreatedBy;
+            newCustomer.CustomerNo = CustomerNo;
+            newCustomer.Description = Description;
+            newCustomer.Email = Email;
+            newCustomer.Phone = Phone;
+            newCustomer.ZipCode = ZipCode;
+
+            newCustomer.Update(DbContext);
+
+            Customer dbCustomer = DbContext.Customers.AsNoTracking().First();
+            List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
+            List<CustomerVersion> customerVersions = DbContext.CustomerVersions.AsNoTracking().ToList();
+
+            // Assert
+            Assert.NotNull(dbCustomer);
+
+            Assert.AreEqual(1, customerList.Count());
+            Assert.AreEqual(1, customerVersions.Count());
+
+            Assert.AreEqual(newCustomer.CityName, dbCustomer.CityName);
+            Assert.AreEqual(newCustomer.CompanyAddress, dbCustomer.CompanyAddress);
+            Assert.AreEqual(newCustomer.CompanyName, dbCustomer.CompanyName);
+            Assert.AreEqual(newCustomer.ContactPerson, dbCustomer.ContactPerson);
+            Assert.AreEqual(newCustomer.CreatedBy, dbCustomer.CreatedBy);
+            Assert.AreEqual(newCustomer.CustomerNo, dbCustomer.CustomerNo);
+            Assert.AreEqual(newCustomer.Description, dbCustomer.Description);
+            Assert.AreEqual(newCustomer.Email, dbCustomer.Email);
+            Assert.AreEqual(newCustomer.Phone, dbCustomer.Phone);
+            Assert.AreEqual(newCustomer.ZipCode, dbCustomer.ZipCode);
+        }
         //needs versions.
         [Test]
         public void CustomerFullModel_Delete_DoesDelete()
