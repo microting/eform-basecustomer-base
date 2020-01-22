@@ -53,5 +53,16 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public string CountryCode { get; set; }
         
         public int? CrmId { get; set; }
+        
+        public string CadastralNumber { get; set; }
+        
+        public int? PropertyNumber { get; set; }
+        
+        public int? ApartmentNumber { get; set; }
+        
+        public int? CompletionYear { get; set; }
+        
+        public int? FloorsWithLivingSpace { get; set; }
+
     }
 }

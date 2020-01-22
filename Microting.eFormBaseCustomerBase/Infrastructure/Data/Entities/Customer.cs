@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 using Microting.eForm.Infrastructure.Constants;
 using Microting.eFormApi.BasePn.Abstractions;
 using Microting.eFormApi.BasePn.Infrastructure.Database.Base;
@@ -9,7 +10,7 @@ using Microting.eFormApi.BasePn.Infrastructure.Database.Base;
 
 namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 {
-    public class Customer : BaseEntity, IDataAccessObject<CustomersPnDbAnySql>
+    public class Customer : BaseEntity
     {
 
         public DateTime CreatedDate { get; set; }
@@ -54,8 +55,18 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public string CountryCode { get; set; }
         
         public int? CrmId { get; set; }
+        
+        public string CadastralNumber { get; set; }
+        
+        public int? PropertyNumber { get; set; }
+        
+        public int? ApartmentNumber { get; set; }
+        
+        public int? CompletionYear { get; set; }
+        
+        public int? FloorsWithLivingSpace { get; set; }
 
-        public void Create(CustomersPnDbAnySql dbContext)
+        public async Task Create(CustomersPnDbAnySql dbContext)
         {
             CreatedAt = DateTime.UtcNow;
             UpdatedAt = DateTime.UtcNow;
@@ -63,13 +74,13 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             WorkflowState = Constants.WorkflowStates.Created;
             
             dbContext.Customers.Add(this);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
 
             dbContext.CustomerVersions.Add(MapVersions(dbContext, this));
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public void Update(CustomersPnDbAnySql dbContext)
+        public async Task Update(CustomersPnDbAnySql dbContext)
         {
             Customer customer = dbContext.Customers.FirstOrDefault(x => x.Id == Id);
 
@@ -96,19 +107,24 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             customer.CreatedDate = CreatedDate;
             customer.CountryCode = CountryCode;
             customer.CrmId = CrmId;
+            customer.CadastralNumber = CadastralNumber;
+            customer.PropertyNumber = PropertyNumber;
+            customer.ApartmentNumber = ApartmentNumber;
+            customer.CompletionYear = CompletionYear;
+            customer.FloorsWithLivingSpace = FloorsWithLivingSpace;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
                 customer.UpdatedAt = DateTime.Now;
                 customer.Version += 1;
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
 
                 dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
             }
         }
 
-        public void Delete(CustomersPnDbAnySql dbContext)
+        public async Task Delete(CustomersPnDbAnySql dbContext)
         {
             Customer customer = dbContext.Customers.FirstOrDefault(x => x.Id == Id);
 
@@ -124,10 +140,10 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             {
                 customer.UpdatedAt = DateTime.Now;
                 customer.Version += 1;
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
                 
                 dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
             }
         }
 
@@ -157,7 +173,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 CreatedByUserId = customer.CreatedByUserId,
                 UpdatedAt = customer.UpdatedAt,
                 UpdatedByUserId = customer.UpdatedByUserId,
-                CrmId = customer.CrmId
+                CrmId = customer.CrmId,
+                CadastralNumber = customer.CadastralNumber,
+                PropertyNumber = customer.PropertyNumber,
+                ApartmentNumber = customer.ApartmentNumber,
+                CompletionYear = customer.CompletionYear,
+                FloorsWithLivingSpace = customer.FloorsWithLivingSpace
             };
         }
     }
