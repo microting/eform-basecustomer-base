@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microting.eForm.Infrastructure.Constants;
 using Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities;
@@ -12,7 +13,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
     public class CustomerUTest : DbTestFixture
     {
         [Test]
-        public void CustomerFullModel_Save_DoesSave()
+        public async Task CustomerFullModel_Save_DoesSave()
         {
             // Arrange
             
@@ -44,7 +45,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             };
 
             // Act
-            newCustomer.Create(DbContext);
+            await newCustomer.Create(DbContext);
 
             Customer customer = DbContext.Customers.AsNoTracking().First();
             List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
@@ -77,7 +78,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
         }
         //needs version.
         [Test]
-        public void CustomerFullModel_Update_DoesUpdate()
+        public async Task CustomerFullModel_Update_DoesUpdate()
         {
             // Arrange
             Random rnd = new Random();
@@ -107,7 +108,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
                 FloorsWithLivingSpace = rnd.Next(1, 255)
             };
 
-            newCustomer.Create(DbContext);
+            await newCustomer.Create(DbContext);
 
             // Act
             newCustomer.CityName = Guid.NewGuid().ToString();
@@ -132,7 +133,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             newCustomer.FloorsWithLivingSpace = rnd.Next(1, 255);
             
             
-            newCustomer.Update(DbContext);
+            await newCustomer.Update(DbContext);
 
             Customer dbCustomer = DbContext.Customers.AsNoTracking().First();
             List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
@@ -164,8 +165,8 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             Assert.AreEqual(newCustomer.FloorsWithLivingSpace , dbCustomer.FloorsWithLivingSpace);
             Assert.AreEqual(newCustomer.CompanyAddress2 , dbCustomer.CompanyAddress2);
         }
-                [Test]
-        public void CustomerFullModel_Update_DoesUpdateWithSameStrings()
+        [Test]
+        public async Task CustomerFullModel_Update_DoesUpdateWithSameStrings()
         {
             // Arrange
             Random rnd = new Random();
@@ -218,7 +219,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             newCustomer.CompletionYear = CompletionYear;
             newCustomer.FloorsWithLivingSpace = FloorsWithLivingSpace;
 
-            newCustomer.Create(DbContext);
+            await newCustomer.Create(DbContext);
 
             // Act
             newCustomer.CityName = CityName;
@@ -243,7 +244,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             newCustomer.CompletionYear = CompletionYear;
             newCustomer.FloorsWithLivingSpace = FloorsWithLivingSpace;
 
-            newCustomer.Update(DbContext);
+            await newCustomer.Update(DbContext);
 
             Customer dbCustomer = DbContext.Customers.AsNoTracking().First();
             List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
@@ -277,7 +278,7 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
         }
         //needs versions.
         [Test]
-        public void CustomerFullModel_Delete_DoesDelete()
+        public async Task CustomerFullModel_Delete_DoesDelete()
         {
             // Arrange
             Random rnd = new Random();
@@ -307,10 +308,10 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
                 FloorsWithLivingSpace = rnd.Next(1, 255)
             };
 
-            customer.Create(DbContext);
+            await customer.Create(DbContext);
 
             // Act
-            customer.Delete(DbContext);
+            await customer.Delete(DbContext);
 
             Customer dbCustomer = DbContext.Customers.AsNoTracking().First();
             List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
