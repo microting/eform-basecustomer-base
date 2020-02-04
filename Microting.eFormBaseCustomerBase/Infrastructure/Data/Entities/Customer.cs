@@ -65,6 +65,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public int? CompletionYear { get; set; }
         
         public int? FloorsWithLivingSpace { get; set; }
+        
+        public int? CadastralType { get; set; }
 
         public async Task Create(CustomersPnDbAnySql dbContext)
         {
@@ -112,6 +114,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             customer.ApartmentNumber = ApartmentNumber;
             customer.CompletionYear = CompletionYear;
             customer.FloorsWithLivingSpace = FloorsWithLivingSpace;
+            customer.CadastralType = CadastralType;
 
             if (dbContext.ChangeTracker.HasChanges())
             {
@@ -178,7 +181,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 PropertyNumber = customer.PropertyNumber,
                 ApartmentNumber = customer.ApartmentNumber,
                 CompletionYear = customer.CompletionYear,
-                FloorsWithLivingSpace = customer.FloorsWithLivingSpace
+                FloorsWithLivingSpace = customer.FloorsWithLivingSpace,
+                CadastralType = customer.CadastralType
             };
         }
     }

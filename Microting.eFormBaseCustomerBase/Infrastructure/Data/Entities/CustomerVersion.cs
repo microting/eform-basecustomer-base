@@ -63,6 +63,8 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         public int? CompletionYear { get; set; }
         
         public int? FloorsWithLivingSpace { get; set; }
+        
+        public int? CadastralType { get; set; }
 
     }
 }
