@@ -23,21 +23,21 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data
         public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
         public DbSet<PluginGroupPermissionVersion> PluginGroupPermissionVersions { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Customer>()
-                .HasIndex(x => x.RelatedEntityId)
-                .IsUnique();
-            modelBuilder.Entity<Field>()
-                .HasIndex(x => x.Name);
-
-            modelBuilder.Entity<PluginGroupPermissionVersion>()
-                .HasOne(x => x.PluginGroupPermission)
-                .WithMany()
-                .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
-                .OnDelete(DeleteBehavior.Restrict);
-        }
+        // protected override void OnModelCreating(ModelBuilder modelBuilder)
+        // {
+        //     base.OnModelCreating(modelBuilder);
+        //
+        //     // modelBuilder.Entity<Customer>()
+        //     //     .HasIndex(x => x.RelatedEntityId)
+        //     //     .IsUnique();
+        //     // modelBuilder.Entity<Field>()
+        //     //     .HasIndex(x => x.Name);
+        //     //
+        //     // modelBuilder.Entity<PluginGroupPermissionVersion>()
+        //     //     .HasOne(x => x.PluginGroupPermission)
+        //     //     .WithMany()
+        //     //     .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
+        //     //     .OnDelete(DeleteBehavior.Restrict);
+        // }
     }
 }
