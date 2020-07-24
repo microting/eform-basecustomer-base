@@ -17,6 +17,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data
         public DbSet<CustomerVersion> CustomerVersions { get; set; }
         public DbSet<Field> Fields { get; set; }
         public DbSet<CustomerField> CustomerFields { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
         public DbSet<PluginPermission> PluginPermissions { get; set; }
