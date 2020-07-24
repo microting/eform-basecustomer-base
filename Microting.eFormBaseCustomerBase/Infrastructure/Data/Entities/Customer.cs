@@ -78,7 +78,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
             dbContext.Customers.Add(this);
             await dbContext.SaveChangesAsync();
 
-            dbContext.CustomerVersions.Add(MapVersions(dbContext, this));
+            dbContext.CustomerVersions.Add(MapVersions(this));
             await dbContext.SaveChangesAsync();
         }
 
@@ -122,7 +122,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 customer.Version += 1;
                 await dbContext.SaveChangesAsync();
 
-                dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
+                dbContext.CustomerVersions.Add(MapVersions(customer));
                 await dbContext.SaveChangesAsync();
             }
         }
@@ -145,12 +145,12 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 customer.Version += 1;
                 await dbContext.SaveChangesAsync();
                 
-                dbContext.CustomerVersions.Add(MapVersions(dbContext, customer));
+                dbContext.CustomerVersions.Add(MapVersions(customer));
                 await dbContext.SaveChangesAsync();
             }
         }
 
-        private CustomerVersion MapVersions(CustomersPnDbAnySql dbContext, Customer customer)
+        private CustomerVersion MapVersions(Customer customer)
         {
             return new CustomerVersion()
             {

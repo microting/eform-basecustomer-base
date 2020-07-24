@@ -33,6 +33,9 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
 
             dbContext.Invoices.Add(this);
             await dbContext.SaveChangesAsync();
+
+            dbContext.InvoiceVersions.Add(MapVersions(this));
+            await dbContext.SaveChangesAsync();
         }
 
         public async Task Update(CustomersPnDbAnySql dbContext)
@@ -64,6 +67,9 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 invoice.UpdatedAt = DateTime.Now;
                 invoice.Version += 1;
                 await dbContext.SaveChangesAsync();
+
+                dbContext.InvoiceVersions.Add(MapVersions(invoice));
+                await dbContext.SaveChangesAsync();
             }
         }
 
@@ -83,7 +89,38 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
                 invoice.UpdatedAt = DateTime.Now;
                 invoice.Version += 1;
                 await dbContext.SaveChangesAsync();
+
+                dbContext.InvoiceVersions.Add(MapVersions(invoice));
+                await dbContext.SaveChangesAsync();
             }
+        }
+
+        private InvoiceVersion MapVersions(Invoice invoice)
+        {
+            return new InvoiceVersion()
+            {
+                CustomerId = invoice.CustomerId,
+                Currency = invoice.Currency,
+                Date = invoice.Date,
+                DueDate = invoice.DueDate,
+                GrossAmount = invoice.GrossAmount,
+                NetAmount = invoice.NetAmount,
+                OrderId = invoice.OrderId,
+                Pdf = invoice.Pdf,
+                VatAmount = invoice.VatAmount,
+                Remainder = invoice.Remainder,
+                RemainderBaseCurrency = invoice.RemainderBaseCurrency,
+                VatIncluded = invoice.VatIncluded,
+                PageNo = invoice.PageNo,
+                ApiId = invoice.ApiId,
+                InvoiceId = invoice.Id,
+                CreatedAt = invoice.CreatedAt,
+                UpdatedAt = invoice.UpdatedAt,
+                CreatedByUserId = invoice.CreatedByUserId,
+                UpdatedByUserId = invoice.UpdatedByUserId,
+                WorkflowState = invoice.WorkflowState,
+                Version = invoice.Version
+            };
         }
     }
 }

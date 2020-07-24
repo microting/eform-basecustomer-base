@@ -9,25 +9,11 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
     {
         public CustomersPnDbAnySql CreateDbContext(string[] args)
         {
+            var defaultCs = "Server = localhost; port = 3306; Database = customers-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<CustomersPnDbAnySql>();
-            if (args.Any())
-            {
-                if (args.FirstOrDefault().ToLower().Contains("convert zero datetime"))
-                {
-                    optionsBuilder.UseMySql(args.FirstOrDefault());
-                }
-                else
-                {
-                    optionsBuilder.UseSqlServer(args.FirstOrDefault());
-                }
-            }
-            else
-            {
-                throw new ArgumentNullException("Connection string not present");
-            }
-//            optionsBuilder.UseSqlServer(@"data source=(LocalDb)\SharedInstance;Initial catalog=customers-pn-tests;Integrated Security=True");
-//            dotnet ef migrations add InitialCreate --project Microting.eFormBaseCustomerBase --startup-project DBMigrator
+            optionsBuilder.UseMySql(args.Any() ? args[0]: defaultCs);
             optionsBuilder.UseLazyLoadingProxies(true);
+
             return new CustomersPnDbAnySql(optionsBuilder.Options);
         }
     }

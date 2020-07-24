@@ -18,27 +18,11 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data
         public DbSet<Field> Fields { get; set; }
         public DbSet<CustomerField> CustomerFields { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceVersion> InvoiceVersions { get; set; }
         public DbSet<PluginConfigurationValue> PluginConfigurationValues { get; set; }
         public DbSet<PluginConfigurationValueVersion> PluginConfigurationValueVersions { get; set; }
         public DbSet<PluginPermission> PluginPermissions { get; set; }
         public DbSet<PluginGroupPermission> PluginGroupPermissions { get; set; }
         public DbSet<PluginGroupPermissionVersion> PluginGroupPermissionVersions { get; set; }
-
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     base.OnModelCreating(modelBuilder);
-        //
-        //     // modelBuilder.Entity<Customer>()
-        //     //     .HasIndex(x => x.RelatedEntityId)
-        //     //     .IsUnique();
-        //     // modelBuilder.Entity<Field>()
-        //     //     .HasIndex(x => x.Name);
-        //     //
-        //     // modelBuilder.Entity<PluginGroupPermissionVersion>()
-        //     //     .HasOne(x => x.PluginGroupPermission)
-        //     //     .WithMany()
-        //     //     .HasForeignKey("FK_PluginGroupPermissionVersions_PluginGroupPermissionId")
-        //     //     .OnDelete(DeleteBehavior.Restrict);
-        // }
     }
 }
