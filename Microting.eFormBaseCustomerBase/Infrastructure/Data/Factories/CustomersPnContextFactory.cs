@@ -15,6 +15,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
             optionsBuilder.UseLazyLoadingProxies(true);
 
             return new CustomersPnDbAnySql(optionsBuilder.Options);
+            // dotnet ef migrations add InitialMigration --project Microting.eFormBaseCustomerBase --startup-project DBMigrator
         }
     }
 }
