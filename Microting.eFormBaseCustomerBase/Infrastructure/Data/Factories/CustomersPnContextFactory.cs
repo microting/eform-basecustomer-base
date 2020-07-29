@@ -2,6 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 
 namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
 {
@@ -11,7 +12,10 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
         {
             var defaultCs = "Server = localhost; port = 3306; Database = customers-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<CustomersPnDbAnySql>();
-            optionsBuilder.UseMySql(args.Any() ? args[0]: defaultCs);
+            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, mysqlOptions =>
+            {
+                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb);
+            });
             optionsBuilder.UseLazyLoadingProxies(true);
 
             return new CustomersPnDbAnySql(optionsBuilder.Options);
