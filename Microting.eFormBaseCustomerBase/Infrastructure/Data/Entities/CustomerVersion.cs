@@ -66,5 +66,13 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Entities
         
         public int? CadastralType { get; set; }
 
+        public bool PaymentOverdue { get; set; }
+
+        public string PaymentStatus { get; set; }
+
+        public int Balance { get; set; }
+
+        public int CreditLimit { get; set; }
+
     }
 }
