@@ -14,7 +14,7 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
             var optionsBuilder = new DbContextOptionsBuilder<CustomersPnDbAnySql>();
             optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, mysqlOptions =>
             {
-                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb);
+                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb).EnableRetryOnFailure();;
             });
             optionsBuilder.UseLazyLoadingProxies(true);
 
