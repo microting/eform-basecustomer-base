@@ -1,6 +1,8 @@
 # eform-BaseCustomer-base
-Build status
-[![Build Status](https://travis-ci.org/microting/eform-BaseCustomer-base.svg?branch=master)](https://travis-ci.org/microting/eform-BaseCustomer-base)
+[![.NET Version Release](https://github.com/microting/eform-basecustomer-base/actions/workflows/dotnet-core.yml/badge.svg)](https://github.com/microting/eform-basecustomer-base/actions/workflows/dotnet-core.yml)
+[![NuGet Badge](https://buildstats.info/nuget/Microting.eFormBaseCustomerBase)](https://www.nuget.org/packages/Microting.eFormBaseCustomerBase/)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cdabfb1376e025a9e1d4/maintainability)](https://codeclimate.com/github/microting/eform-basecustomer-base/maintainability)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ec2e0dbd25b04e1eaab307611adaa260)](https://www.codacy.com/gh/microting/eform-basecustomer-base/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=microting/eform-basecustomer-base&amp;utm_campaign=Badge_Grade)
 
 ## NOTICE! this is not a standalone project and needs to be used with eForm Angular Frontend.
 
@@ -24,7 +26,7 @@ Pull-reuqsts that do not pass tests, will not be accepted.
 Check out the [full issues list](https://github.com/microting/eform-BaseCustomer-base/issues) for a list of all potential areas for contributions.
 
 To improve the chances to get a pull request merged you should select an issue that is labelled with the [help_wanted](https://github.com/microting/eform-BaseCustomer-base/issues?q=is%3Aissue+is%3Aopen+label%3Ahelp_wanted) or [bug](https://github.com/microting/eform-BaseCustomer-base/issues?q=is%3Aissue+is%3Aopen+label%3Abug) labels. If the issue you want to work on is not labelled with `help-wanted` or `bug`, you can start a conversation with the issue owner asking whether an external contribution will be considered.
-	
+
 ### Suggestions
 
 We're also interested in your feedback for the future of Microting eForm SDK. You can submit a suggestion or feature request through the issue tracker. To make this process more effective, we're asking that these include more information to help define them more clearly.
@@ -32,7 +34,7 @@ We're also interested in your feedback for the future of Microting eForm SDK. Yo
 ## Microting Open Source Code of Conduct
 
 This project has adopted the [Microting Open Source Code of Conduct](https://www.microting.com/microting-open-source-code-of-conduct). Contact opencode@microting.com with any additional questions or comments.
-	
+
 
 ## License
 
