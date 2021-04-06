@@ -1,5 +1,13 @@
 # Changelog
 
+## [v2.0.107](https://github.com/microting/eform-basecustomer-base/tree/v2.0.107) (2021-04-06)
+
+[Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v2.0.106...v2.0.107)
+
+**Implemented enhancements:**
+
+- Bump Microting.eForm from 4.4.19 to 4.4.20 [\#64](https://github.com/microting/eform-basecustomer-base/issues/64)
+
 ## [v2.0.106](https://github.com/microting/eform-basecustomer-base/tree/v2.0.106) (2021-04-05)
 
 [Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v2.0.105...v2.0.106)
