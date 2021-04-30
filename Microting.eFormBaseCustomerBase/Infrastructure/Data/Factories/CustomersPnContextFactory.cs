@@ -12,9 +12,10 @@ namespace Microting.eFormBaseCustomerBase.Infrastructure.Data.Factories
         {
             var defaultCs = "Server = localhost; port = 3306; Database = customers-pn; user = root; Convert Zero Datetime = true;";
             var optionsBuilder = new DbContextOptionsBuilder<CustomersPnDbAnySql>();
-            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, mysqlOptions =>
+            optionsBuilder.UseMySql(args.Any() ? args[0] : defaultCs, new MariaDbServerVersion(
+                new Version(10, 4, 0)), mySqlOptionsAction: builder =>
             {
-                mysqlOptions.ServerVersion(new Version(10, 4, 0), ServerType.MariaDb).EnableRetryOnFailure();;
+                builder.EnableRetryOnFailure();
             });
             optionsBuilder.UseLazyLoadingProxies(true);
 
