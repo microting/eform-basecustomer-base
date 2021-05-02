@@ -1,5 +1,17 @@
 # Changelog
 
+## [v3.0.1](https://github.com/microting/eform-basecustomer-base/tree/v3.0.1) (2021-05-02)
+
+[Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v3.0.0...v3.0.1)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.0.0 to 3.0.1 [\#106](https://github.com/microting/eform-basecustomer-base/issues/106)
+
+## [v3.0.0](https://github.com/microting/eform-basecustomer-base/tree/v3.0.0) (2021-04-30)
+
+[Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v2.1.3...v3.0.0)
+
 ## [v2.1.3](https://github.com/microting/eform-basecustomer-base/tree/v2.1.3) (2021-04-30)
 
 [Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v2.1.2...v2.1.3)
