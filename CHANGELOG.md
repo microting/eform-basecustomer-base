@@ -1,5 +1,18 @@
 # Changelog
 
+## [v3.0.46](https://github.com/microting/eform-basecustomer-base/tree/v3.0.46) (2021-09-25)
+
+[Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v3.0.45...v3.0.46)
+
+**Implemented enhancements:**
+
+- Bump Microting.eFormApi.BasePn from 3.0.50 to 3.0.51 [\#229](https://github.com/microting/eform-basecustomer-base/issues/229)
+- Bump Microting.eForm from 5.2.40 to 5.2.42 [\#228](https://github.com/microting/eform-basecustomer-base/issues/228)
+
+## [v3.0.45](https://github.com/microting/eform-basecustomer-base/tree/v3.0.45) (2021-09-16)
+
+[Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v3.0.44...v3.0.45)
+
 ## [v3.0.44](https://github.com/microting/eform-basecustomer-base/tree/v3.0.44) (2021-09-15)
 
 [Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v3.0.43...v3.0.44)
@@ -154,7 +167,6 @@
 - Bump Microsoft.EntityFrameworkCore.Design from 5.0.7 to 5.0.8 [\#182](https://github.com/microting/eform-basecustomer-base/issues/182)
 - Bump Microsoft.EntityFrameworkCore from 5.0.7 to 5.0.8 [\#181](https://github.com/microting/eform-basecustomer-base/issues/181)
 - Bump Microting.eFormApi.BasePn from 3.0.28 to 3.0.30 [\#180](https://github.com/microting/eform-basecustomer-base/issues/180)
-- Bump Microting.eForm from 5.2.15 to 5.2.17 [\#179](https://github.com/microting/eform-basecustomer-base/issues/179)
 
 ## [v3.0.28](https://github.com/microting/eform-basecustomer-base/tree/v3.0.28) (2021-07-08)
 
@@ -171,12 +183,14 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eForm from 5.2.15 to 5.2.17 [\#179](https://github.com/microting/eform-basecustomer-base/issues/179)
 - Bump Microting.eFormApi.BasePn from 3.0.26 to 3.0.27 [\#173](https://github.com/microting/eform-basecustomer-base/issues/173)
 - Bump Microting.eForm from 5.2.13 to 5.2.14 [\#172](https://github.com/microting/eform-basecustomer-base/issues/172)
 
 **Merged pull requests:**
 
 - Bump NUnit3TestAdapter from 3.17.0 to 4.0.0 [\#153](https://github.com/microting/eform-basecustomer-base/pull/153) ([dependabot[bot]](https://github.com/apps/dependabot))
+- Bump Microsoft.NET.Test.Sdk from 16.9.4 to 16.10.0 [\#138](https://github.com/microting/eform-basecustomer-base/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [v3.0.26](https://github.com/microting/eform-basecustomer-base/tree/v3.0.26) (2021-07-05)
 
@@ -314,7 +328,6 @@
 
 **Merged pull requests:**
 
-- Bump Microsoft.NET.Test.Sdk from 16.9.4 to 16.10.0 [\#138](https://github.com/microting/eform-basecustomer-base/pull/138) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Upgrade to GitHub-native Dependabot [\#101](https://github.com/microting/eform-basecustomer-base/pull/101) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump NUnit from 3.12.0 to 3.13.2 [\#100](https://github.com/microting/eform-basecustomer-base/pull/100) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
 - Bump Microsoft.NET.Test.Sdk from 16.7.1 to 16.9.4 [\#57](https://github.com/microting/eform-basecustomer-base/pull/57) ([dependabot-preview[bot]](https://github.com/apps/dependabot-preview))
@@ -356,7 +369,6 @@
 **Implemented enhancements:**
 
 - Bump Microting.eFormApi.BasePn from 3.0.7 to 3.0.8 [\#122](https://github.com/microting/eform-basecustomer-base/issues/122)
-- Bump Microting.eForm from 5.1.3 to 5.1.4 [\#121](https://github.com/microting/eform-basecustomer-base/issues/121)
 
 ## [v3.0.6](https://github.com/microting/eform-basecustomer-base/tree/v3.0.6) (2021-05-06)
 
@@ -364,6 +376,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eForm from 5.1.3 to 5.1.4 [\#121](https://github.com/microting/eform-basecustomer-base/issues/121)
 - Bump Microting.eFormApi.BasePn from 3.0.6 to 3.0.7 [\#118](https://github.com/microting/eform-basecustomer-base/issues/118)
 - Bump Microting.eForm from 5.1.2 to 5.1.3 [\#117](https://github.com/microting/eform-basecustomer-base/issues/117)
 
@@ -588,7 +601,6 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.107 to 2.0.109 [\#59](https://github.com/microting/eform-basecustomer-base/issues/59)
 - Bump Microting.eForm from 4.4.13 to 4.4.16 [\#58](https://github.com/microting/eform-basecustomer-base/issues/58)
-- Bump Microting.eFormApi.BasePn from 2.0.106 to 2.0.107 [\#54](https://github.com/microting/eform-basecustomer-base/issues/54)
 
 ## [v2.0.103](https://github.com/microting/eform-basecustomer-base/tree/v2.0.103) (2021-03-29)
 
@@ -596,6 +608,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eFormApi.BasePn from 2.0.106 to 2.0.107 [\#54](https://github.com/microting/eform-basecustomer-base/issues/54)
 - Bump Microting.eForm from 4.4.11 to 4.4.13 [\#53](https://github.com/microting/eform-basecustomer-base/issues/53)
 
 ## [v2.0.102](https://github.com/microting/eform-basecustomer-base/tree/v2.0.102) (2021-03-25)
@@ -604,7 +617,7 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eForm from 4.4.9 to 4.4.11 [\#51](https://github.com/microting/eform-basecustomer-base/issues/51)
+- Bump Microting.eFormApi.BasePn from 2.0.104 to 2.0.106 [\#52](https://github.com/microting/eform-basecustomer-base/issues/52)
 
 ## [v2.0.101](https://github.com/microting/eform-basecustomer-base/tree/v2.0.101) (2021-03-17)
 
@@ -630,6 +643,7 @@
 
 **Implemented enhancements:**
 
+- Bump Microting.eForm from 4.4.9 to 4.4.11 [\#51](https://github.com/microting/eform-basecustomer-base/issues/51)
 - Bump Microting.eFormApi.BasePn from 2.0.99 to 2.0.101 [\#41](https://github.com/microting/eform-basecustomer-base/issues/41)
 - Bump Microting.eForm from 4.4.3 to 4.4.6 [\#40](https://github.com/microting/eform-basecustomer-base/issues/40)
 
@@ -639,7 +653,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 2.0.104 to 2.0.106 [\#52](https://github.com/microting/eform-basecustomer-base/issues/52)
 - Bump Microting.eFormApi.BasePn from 2.0.98 to 2.0.99 [\#32](https://github.com/microting/eform-basecustomer-base/issues/32)
 - Bump Microting.eForm from 4.4.2 to 4.4.3 [\#31](https://github.com/microting/eform-basecustomer-base/issues/31)
 
@@ -651,6 +664,7 @@
 
 - Bump Microting.eFormApi.BasePn from 2.0.97 to 2.0.98 [\#30](https://github.com/microting/eform-basecustomer-base/issues/30)
 - Bump Microting.eForm from 4.4.1 to 4.4.2 [\#29](https://github.com/microting/eform-basecustomer-base/issues/29)
+- Bump Microting.eFormApi.BasePn from 2.0.96 to 2.0.97 [\#27](https://github.com/microting/eform-basecustomer-base/issues/27)
 
 ## [v2.0.96](https://github.com/microting/eform-basecustomer-base/tree/v2.0.96) (2021-02-20)
 
@@ -658,7 +672,6 @@
 
 **Implemented enhancements:**
 
-- Bump Microting.eFormApi.BasePn from 2.0.96 to 2.0.97 [\#27](https://github.com/microting/eform-basecustomer-base/issues/27)
 - Bump Microting.eForm from 4.3.18 to 4.4.1 [\#26](https://github.com/microting/eform-basecustomer-base/issues/26)
 
 ## [v2.0.95](https://github.com/microting/eform-basecustomer-base/tree/v2.0.95) (2021-02-20)
@@ -1353,10 +1366,6 @@
 
 [Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v1.1.35...v1.1.36)
 
-**Merged pull requests:**
-
-- Updates [\#2](https://github.com/microting/eform-basecustomer-base/pull/2) ([emleonid](https://github.com/emleonid))
-
 ## [v1.1.35](https://github.com/microting/eform-basecustomer-base/tree/v1.1.35) (2019-10-29)
 
 [Full Changelog](https://github.com/microting/eform-basecustomer-base/compare/v1.1.34...v1.1.35)
@@ -1371,6 +1380,7 @@
 
 **Merged pull requests:**
 
+- Updates [\#2](https://github.com/microting/eform-basecustomer-base/pull/2) ([emleonid](https://github.com/emleonid))
 - Permission updates [\#1](https://github.com/microting/eform-basecustomer-base/pull/1) ([Gid733](https://github.com/Gid733))
 
 ## [v1.1.32](https://github.com/microting/eform-basecustomer-base/tree/v1.1.32) (2019-10-16)
