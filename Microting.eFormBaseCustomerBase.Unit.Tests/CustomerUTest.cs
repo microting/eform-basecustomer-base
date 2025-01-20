@@ -51,30 +51,30 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<Customer> customerList = DbContext.Customers.AsNoTracking().ToList();
             List<CustomerVersion> customerVersions = DbContext.CustomerVersions.AsNoTracking().ToList();
             // Assert
-            Assert.NotNull(customer);
+            Assert.That(customer, Is.Not.Null);
 
-            Assert.AreEqual(1, customerList.Count());
-            Assert.AreEqual(1, customerVersions.Count());
+            Assert.That(customerList.Count(), Is.EqualTo(1));
+            Assert.That(customerVersions.Count(), Is.EqualTo(1));
             
-            Assert.AreEqual(newCustomer.CityName , customer.CityName);
-            Assert.AreEqual(newCustomer.CompanyAddress , customer.CompanyAddress);
-            Assert.AreEqual(newCustomer.CompanyName , customer.CompanyName);
-            Assert.AreEqual(newCustomer.CustomerNo , customer.CustomerNo);
-            Assert.AreEqual(newCustomer.Description , customer.Description);
-            Assert.AreEqual(newCustomer.Email , customer.Email);
-            Assert.AreEqual(newCustomer.Phone , customer.Phone);
-            Assert.AreEqual(newCustomer.ZipCode , customer.ZipCode);
-            Assert.AreEqual(newCustomer.RelatedEntityId , customer.RelatedEntityId);
-            Assert.AreEqual(newCustomer.EanCode , customer.EanCode);
-            Assert.AreEqual(newCustomer.VatNumber , customer.VatNumber);
-            Assert.AreEqual(newCustomer.CountryCode , customer.CountryCode);
-            Assert.AreEqual(newCustomer.CrmId , customer.CrmId);
-            Assert.AreEqual(newCustomer.CadastralNumber , customer.CadastralNumber);
-            Assert.AreEqual(newCustomer.PropertyNumber , customer.PropertyNumber);
-            Assert.AreEqual(newCustomer.ApartmentNumber , customer.ApartmentNumber);
-            Assert.AreEqual(newCustomer.CompletionYear , customer.CompletionYear);
-            Assert.AreEqual(newCustomer.FloorsWithLivingSpace , customer.FloorsWithLivingSpace);
-            Assert.AreEqual(newCustomer.CompanyAddress2 , customer.CompanyAddress2);
+            Assert.That(customer.CityName, Is.EqualTo(newCustomer.CityName ));
+            Assert.That(customer.CompanyAddress, Is.EqualTo(newCustomer.CompanyAddress ));
+            Assert.That(customer.CompanyName, Is.EqualTo(newCustomer.CompanyName ));
+            Assert.That(customer.CustomerNo, Is.EqualTo(newCustomer.CustomerNo ));
+            Assert.That(customer.Description, Is.EqualTo(newCustomer.Description ));
+            Assert.That(customer.Email, Is.EqualTo(newCustomer.Email ));
+            Assert.That(customer.Phone, Is.EqualTo(newCustomer.Phone ));
+            Assert.That(customer.ZipCode, Is.EqualTo(newCustomer.ZipCode ));
+            Assert.That(customer.RelatedEntityId, Is.EqualTo(newCustomer.RelatedEntityId ));
+            Assert.That(customer.EanCode, Is.EqualTo(newCustomer.EanCode ));
+            Assert.That(customer.VatNumber, Is.EqualTo(newCustomer.VatNumber ));
+            Assert.That(customer.CountryCode, Is.EqualTo(newCustomer.CountryCode ));
+            Assert.That(customer.CrmId, Is.EqualTo(newCustomer.CrmId ));
+            Assert.That(customer.CadastralNumber, Is.EqualTo(newCustomer.CadastralNumber ));
+            Assert.That(customer.PropertyNumber, Is.EqualTo(newCustomer.PropertyNumber ));
+            Assert.That(customer.ApartmentNumber, Is.EqualTo(newCustomer.ApartmentNumber ));
+            Assert.That(customer.CompletionYear, Is.EqualTo(newCustomer.CompletionYear ));
+            Assert.That(customer.FloorsWithLivingSpace, Is.EqualTo(newCustomer.FloorsWithLivingSpace ));
+            Assert.That(customer.CompanyAddress2, Is.EqualTo(newCustomer.CompanyAddress2 ));
         }
         //needs version.
         [Test]
@@ -140,30 +140,30 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<CustomerVersion> customerVersions = DbContext.CustomerVersions.AsNoTracking().ToList();
 
             // Assert
-            Assert.NotNull(dbCustomer);
+            Assert.That(dbCustomer, Is.Not.Null);
 
-            Assert.AreEqual(1, customerList.Count());
-            Assert.AreEqual(2, customerVersions.Count());
+            Assert.That(customerList.Count(), Is.EqualTo(1));
+            Assert.That(customerVersions.Count(), Is.EqualTo(2));
 
-            Assert.AreEqual(newCustomer.CityName , dbCustomer.CityName);
-            Assert.AreEqual(newCustomer.CompanyAddress , dbCustomer.CompanyAddress);
-            Assert.AreEqual(newCustomer.CompanyName , dbCustomer.CompanyName);
-            Assert.AreEqual(newCustomer.CustomerNo , dbCustomer.CustomerNo);
-            Assert.AreEqual(newCustomer.Description , dbCustomer.Description);
-            Assert.AreEqual(newCustomer.Email , dbCustomer.Email);
-            Assert.AreEqual(newCustomer.Phone , dbCustomer.Phone);
-            Assert.AreEqual(newCustomer.ZipCode , dbCustomer.ZipCode);
-            Assert.AreEqual(newCustomer.RelatedEntityId , dbCustomer.RelatedEntityId);
-            Assert.AreEqual(newCustomer.EanCode , dbCustomer.EanCode);
-            Assert.AreEqual(newCustomer.VatNumber , dbCustomer.VatNumber);
-            Assert.AreEqual(newCustomer.CountryCode , dbCustomer.CountryCode);
-            Assert.AreEqual(newCustomer.CrmId , dbCustomer.CrmId);
-            Assert.AreEqual(newCustomer.CadastralNumber , dbCustomer.CadastralNumber);
-            Assert.AreEqual(newCustomer.PropertyNumber , dbCustomer.PropertyNumber);
-            Assert.AreEqual(newCustomer.ApartmentNumber , dbCustomer.ApartmentNumber);
-            Assert.AreEqual(newCustomer.CompletionYear , dbCustomer.CompletionYear);
-            Assert.AreEqual(newCustomer.FloorsWithLivingSpace , dbCustomer.FloorsWithLivingSpace);
-            Assert.AreEqual(newCustomer.CompanyAddress2 , dbCustomer.CompanyAddress2);
+            Assert.That(dbCustomer.CityName, Is.EqualTo(newCustomer.CityName ));
+            Assert.That(dbCustomer.CompanyAddress, Is.EqualTo(newCustomer.CompanyAddress ));
+            Assert.That(dbCustomer.CompanyName, Is.EqualTo(newCustomer.CompanyName ));
+            Assert.That(dbCustomer.CustomerNo, Is.EqualTo(newCustomer.CustomerNo ));
+            Assert.That(dbCustomer.Description, Is.EqualTo(newCustomer.Description ));
+            Assert.That(dbCustomer.Email, Is.EqualTo(newCustomer.Email ));
+            Assert.That(dbCustomer.Phone, Is.EqualTo(newCustomer.Phone ));
+            Assert.That(dbCustomer.ZipCode, Is.EqualTo(newCustomer.ZipCode ));
+            Assert.That(dbCustomer.RelatedEntityId, Is.EqualTo(newCustomer.RelatedEntityId ));
+            Assert.That(dbCustomer.EanCode, Is.EqualTo(newCustomer.EanCode ));
+            Assert.That(dbCustomer.VatNumber, Is.EqualTo(newCustomer.VatNumber ));
+            Assert.That(dbCustomer.CountryCode, Is.EqualTo(newCustomer.CountryCode ));
+            Assert.That(dbCustomer.CrmId, Is.EqualTo(newCustomer.CrmId ));
+            Assert.That(dbCustomer.CadastralNumber, Is.EqualTo(newCustomer.CadastralNumber ));
+            Assert.That(dbCustomer.PropertyNumber, Is.EqualTo(newCustomer.PropertyNumber ));
+            Assert.That(dbCustomer.ApartmentNumber, Is.EqualTo(newCustomer.ApartmentNumber ));
+            Assert.That(dbCustomer.CompletionYear, Is.EqualTo(newCustomer.CompletionYear ));
+            Assert.That(dbCustomer.FloorsWithLivingSpace, Is.EqualTo(newCustomer.FloorsWithLivingSpace ));
+            Assert.That(dbCustomer.CompanyAddress2, Is.EqualTo(newCustomer.CompanyAddress2 ));
         }
         [Test]
         public async Task CustomerFullModel_Update_DoesUpdateWithSameStrings()
@@ -251,30 +251,30 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<CustomerVersion> customerVersions = DbContext.CustomerVersions.AsNoTracking().ToList();
 
             // Assert
-            Assert.NotNull(dbCustomer);
+            Assert.That(dbCustomer, Is.Not.Null);
 
-            Assert.AreEqual(1, customerList.Count());
-            Assert.AreEqual(1, customerVersions.Count());
+            Assert.That(customerList.Count(), Is.EqualTo(1));
+            Assert.That(customerVersions.Count(), Is.EqualTo(1));
 
-            Assert.AreEqual(newCustomer.CityName , dbCustomer.CityName);
-            Assert.AreEqual(newCustomer.CompanyAddress , dbCustomer.CompanyAddress);
-            Assert.AreEqual(newCustomer.CompanyName , dbCustomer.CompanyName);
-            Assert.AreEqual(newCustomer.CustomerNo , dbCustomer.CustomerNo);
-            Assert.AreEqual(newCustomer.Description , dbCustomer.Description);
-            Assert.AreEqual(newCustomer.Email , dbCustomer.Email);
-            Assert.AreEqual(newCustomer.Phone , dbCustomer.Phone);
-            Assert.AreEqual(newCustomer.ZipCode , dbCustomer.ZipCode);
-            Assert.AreEqual(newCustomer.RelatedEntityId , dbCustomer.RelatedEntityId);
-            Assert.AreEqual(newCustomer.EanCode , dbCustomer.EanCode);
-            Assert.AreEqual(newCustomer.VatNumber , dbCustomer.VatNumber);
-            Assert.AreEqual(newCustomer.CountryCode , dbCustomer.CountryCode);
-            Assert.AreEqual(newCustomer.CrmId , dbCustomer.CrmId);
-            Assert.AreEqual(newCustomer.CadastralNumber , dbCustomer.CadastralNumber);
-            Assert.AreEqual(newCustomer.PropertyNumber , dbCustomer.PropertyNumber);
-            Assert.AreEqual(newCustomer.ApartmentNumber , dbCustomer.ApartmentNumber);
-            Assert.AreEqual(newCustomer.CompletionYear , dbCustomer.CompletionYear);
-            Assert.AreEqual(newCustomer.FloorsWithLivingSpace , dbCustomer.FloorsWithLivingSpace);
-            Assert.AreEqual(newCustomer.CompanyAddress2 , dbCustomer.CompanyAddress2);
+            Assert.That(dbCustomer.CityName, Is.EqualTo(newCustomer.CityName ));
+            Assert.That(dbCustomer.CompanyAddress, Is.EqualTo(newCustomer.CompanyAddress ));
+            Assert.That(dbCustomer.CompanyName, Is.EqualTo(newCustomer.CompanyName ));
+            Assert.That(dbCustomer.CustomerNo, Is.EqualTo(newCustomer.CustomerNo ));
+            Assert.That(dbCustomer.Description, Is.EqualTo(newCustomer.Description ));
+            Assert.That(dbCustomer.Email, Is.EqualTo(newCustomer.Email ));
+            Assert.That(dbCustomer.Phone, Is.EqualTo(newCustomer.Phone ));
+            Assert.That(dbCustomer.ZipCode, Is.EqualTo(newCustomer.ZipCode ));
+            Assert.That(dbCustomer.RelatedEntityId, Is.EqualTo(newCustomer.RelatedEntityId ));
+            Assert.That(dbCustomer.EanCode, Is.EqualTo(newCustomer.EanCode ));
+            Assert.That(dbCustomer.VatNumber, Is.EqualTo(newCustomer.VatNumber ));
+            Assert.That(dbCustomer.CountryCode, Is.EqualTo(newCustomer.CountryCode ));
+            Assert.That(dbCustomer.CrmId, Is.EqualTo(newCustomer.CrmId ));
+            Assert.That(dbCustomer.CadastralNumber, Is.EqualTo(newCustomer.CadastralNumber ));
+            Assert.That(dbCustomer.PropertyNumber, Is.EqualTo(newCustomer.PropertyNumber ));
+            Assert.That(dbCustomer.ApartmentNumber, Is.EqualTo(newCustomer.ApartmentNumber ));
+            Assert.That(dbCustomer.CompletionYear, Is.EqualTo(newCustomer.CompletionYear ));
+            Assert.That(dbCustomer.FloorsWithLivingSpace, Is.EqualTo(newCustomer.FloorsWithLivingSpace ));
+            Assert.That(dbCustomer.CompanyAddress2, Is.EqualTo(newCustomer.CompanyAddress2 ));
         }
         //needs versions.
         [Test]
@@ -318,22 +318,22 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<CustomerVersion> customerVersions = DbContext.CustomerVersions.AsNoTracking().ToList();
 
             // Assert
-            Assert.NotNull(dbCustomer);
+            Assert.That(dbCustomer, Is.Not.Null);
 
-            Assert.AreEqual(1, customerList.Count());
-            Assert.AreEqual(2, customerVersions.Count());
+            Assert.That(customerList.Count(), Is.EqualTo(1));
+            Assert.That(customerVersions.Count(), Is.EqualTo(2));
 
-            Assert.AreEqual(customer.CityName, dbCustomer.CityName);
-            Assert.AreEqual(customer.CompanyAddress, dbCustomer.CompanyAddress);
-            Assert.AreEqual(customer.CompanyName, dbCustomer.CompanyName);
-            Assert.AreEqual(customer.ContactPerson, dbCustomer.ContactPerson);
-            Assert.AreEqual(customer.CreatedBy, dbCustomer.CreatedBy);
-            Assert.AreEqual(customer.CustomerNo, dbCustomer.CustomerNo);
-            Assert.AreEqual(customer.Description, dbCustomer.Description);
-            Assert.AreEqual(customer.Email, dbCustomer.Email);
-            Assert.AreEqual(customer.Phone, dbCustomer.Phone);
-            Assert.AreEqual(customer.ZipCode, dbCustomer.ZipCode);
-            Assert.AreEqual(customer.WorkflowState, Constants.WorkflowStates.Removed);
+            Assert.That(dbCustomer.CityName, Is.EqualTo(customer.CityName));
+            Assert.That(dbCustomer.CompanyAddress, Is.EqualTo(customer.CompanyAddress));
+            Assert.That(dbCustomer.CompanyName, Is.EqualTo(customer.CompanyName));
+            Assert.That(dbCustomer.ContactPerson, Is.EqualTo(customer.ContactPerson));
+            Assert.That(dbCustomer.CreatedBy, Is.EqualTo(customer.CreatedBy));
+            Assert.That(dbCustomer.CustomerNo, Is.EqualTo(customer.CustomerNo));
+            Assert.That(dbCustomer.Description, Is.EqualTo(customer.Description));
+            Assert.That(dbCustomer.Email, Is.EqualTo(customer.Email));
+            Assert.That(dbCustomer.Phone, Is.EqualTo(customer.Phone));
+            Assert.That(dbCustomer.ZipCode, Is.EqualTo(customer.ZipCode));
+            Assert.That(Constants.WorkflowStates.Removed, Is.EqualTo(customer.WorkflowState));
         }
     }
 }

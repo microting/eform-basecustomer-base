@@ -29,11 +29,11 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<Field> fieldList = DbContext.Fields.AsNoTracking().ToList();
             // Assert
 
-            Assert.NotNull(dbField);
+            Assert.That(dbField, Is.Not.Null);
 
-            Assert.AreEqual(1, fieldList.Count());
+            Assert.That(fieldList.Count(), Is.EqualTo(1));
 
-            Assert.AreEqual(newField.Name, dbField.Name);
+            Assert.That(dbField.Name, Is.EqualTo(newField.Name));
             
         }
         [Test]
@@ -63,11 +63,11 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             Field dbField = DbContext.Fields.AsNoTracking().First();
             List<Field> fieldList = DbContext.Fields.AsNoTracking().ToList();
             // Assert
-            Assert.NotNull(dbField);
+            Assert.That(dbField, Is.Not.Null);
 
-            Assert.AreEqual(1, fieldList.Count());
+            Assert.That(fieldList.Count(), Is.EqualTo(1));
 
-            Assert.AreEqual(fieldUpdateModel.Name, dbField.Name);
+            Assert.That(dbField.Name, Is.EqualTo(fieldUpdateModel.Name));
         }
 
         [Test]
@@ -88,13 +88,13 @@ namespace Microting.eFormBaseCustomerBase.Unit.Tests
             List<Field> fieldVersionList = DbContext.Fields.AsNoTracking().ToList();
             // Assert
 
-            Assert.NotNull(dbField);
-            Assert.NotNull(fieldVersionList);
+            Assert.That(dbField, Is.Not.Null);
+            Assert.That(fieldVersionList, Is.Not.Null);
             
-            Assert.AreEqual(1, fieldList.Count());
+            Assert.That(fieldList.Count(), Is.EqualTo(1));
             
-            Assert.AreEqual(newField.Name, dbField.Name);
-            Assert.AreEqual(Constants.WorkflowStates.Removed, dbField.WorkflowState);
+            Assert.That(dbField.Name, Is.EqualTo(newField.Name));
+            Assert.That(dbField.WorkflowState, Is.EqualTo(Constants.WorkflowStates.Removed));
         }
     }
 }
